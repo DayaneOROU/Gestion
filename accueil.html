@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Accueil</title>
+    <style>
+      body {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        
+        overflow: hidden;
+
+        /* background-color: rgb(232, 236, 239); */
+      }
+      .body{
+        width: 75vh;
+        height: 75vh;
+      }
+      img {
+        width: 100px;
+        height: 100px;
+      }
+      .logo{
+        display: flex;
+        justify-content: space-between;
+        width: 85%;
+        margin-bottom: 100px;
+        
+       
+      }
+      .accueil {
+        display: flex;
+        flex-direction: column;
+        width: 65%;
+      }
+
+      .accueil a {
+        margin: 10px;
+        padding: 12px;
+        border: solid 1px black;
+        text-decoration: none;
+        color: black;
+        border-radius: 17px;
+        box-shadow: 20px 15px rgba(117, 147, 162, 0.5);
+      }
+
+      .accueil a:hover {
+      }
+    </style>
+  </head>
+  <body>
+    
+      <div class="logo">
+        <img src="./img/uac.png" alt="" />
+        <img src="./img/eneam.png" alt="" />
+      </div>
+
+      <div class="accueil">
+        <a href="./users.php">USERS</a>
+        <a href="./exemple15_4.php">ARTICLES</a>
+        <a href="./Listeclient.php">CLIENTS</a>
+        <a href="./Listevente.php">VENTES</a>
+        <a href="effectuervente.php">EFFECTUER VENTES</a>
+        <a href="connexion.html">SE DECONNECTER</a>
+    
+    </div>
+  </body>
+</html>

@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>INSCRIPTION</title>
+    <link rel="stylesheet" href="authentification.css" />
+  </head>
+  <body>
+    <form action="index1.php" method="POST">
+      <center>
+        <h2 style="width: 68% ; margin-bottom: 50px; width: 400px;">Inscrivez vous pour accedez a nos services</h2>
+      </center>
+
+      <input type="text" name="nom" id="nom" placeholder="Nom" /><br />
+      <input type="text" name="prenom" id="prenom" placeholder="Prenom" /><br />
+      <input
+        type="tel"
+        name="tel"
+        id="tel"
+        placeholder="Telephone (01 __ __ __ __ )"
+      /><br />
+      <input
+        type="text"
+        name="log"
+        id="log"
+        placeholder="Choisissez votre login "
+      /><br />
+      <input
+        type="password"
+        name="pass"
+        id="pass"
+        placeholder="Mot de passe"
+      /><br />
+      <input
+        type="password"
+        name="pass2"
+        id="pass2"
+        placeholder="Confirmer le mot de passe "
+      /><br />
+      <input type="submit" value="S'inscrire" id="submit" />
+      <div class="ligne">
+        <h4>J'ai deja un compte</h4>
+        <a href="connexion.html">Se connecter</a>
+      </div>
+    </form>
+  </body>
+  <script>
+      document.getElementById("submit").onclick = function () {
+        const nom = document.getElementById("nom").value;
+        const prenom = document.getElementById("prenom").value;
+        const tel = document.getElementById("tel").value;
+        const log = document.getElementById("log").value;
+        const pass = document.getElementById("pass").value;
+        const pass2 = document.getElementById("pass2").value;
+
+        if (
+          nom == "" ||
+          prenom == "" ||
+          tel == "" ||
+          log == "" ||
+          pass == "" ||
+          pass2 == ""
+        ) {
+          alert("Veuillez remplir tous les champs");
+          return false;
+        }
+        if (tel.length !== 10) {
+          alert("Le numéro de téléphone doit contenir 10 chiffres");
+          return false;
+        }
+
+        if (!tel.startsWith("01")) {
+          alert("Le numéro doit commencer par 01");
+          return;
+        }
+
+        if (pass.length < 4) {
+          alert("Le mot de passe doit contenir au moins 4 caractères");
+          return false;
+
+
+        }
+
+        if (pass !== pass2) {
+          alert("Les mots de passe ne correspondent pas");
+          return false;
+        }
+
+      };
+
+  </script>
+</html>
