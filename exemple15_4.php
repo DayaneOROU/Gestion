@@ -1,7 +1,7 @@
 <?php
 include("bdd.php"); 
 $idcom = connexobjet("essaiebdd"); 
-$requete = "SELECT * FROM article ORDER BY categorie"; 
+$requete = "SELECT * FROM article ORDER BY id_article"; 
 $result = $idcom->query($requete);
 ?>
 
@@ -26,13 +26,13 @@ $result = $idcom->query($requete);
     h3 {
       margin: 0;
       font-size: 22px;
-      color: #333;
+      color: #ffffff;
     }
 
     h4 {
       margin: 0;
       font-size: 14px;
-      color: #666;
+      color: #ffffff;
       font-weight: 400;
     }
 
@@ -53,15 +53,17 @@ $result = $idcom->query($requete);
       font-size: 14px;
       cursor: pointer;
       text-decoration: none;
+      transition: 0.5s;
     }
 
     .btn-ajouter:hover {
       background: #3C3489;
+      scale: 1.05;
     }
 
     table {
       width: 100%;
-      max-width: 800px;
+      max-width: 700px;
       border-collapse: collapse;
       background: white;
       border-radius: 12px;
@@ -106,10 +108,13 @@ $result = $idcom->query($requete);
         border: solid 1px black;
         text-decoration: none;
         color: black;
+        background-color: white;
         border-radius: 17px;
-        box-shadow: 3px 4px rgba(117, 147, 162, 0.5);
-        
-       
+        /* box-shadow: 3px 4px rgba(117, 147, 162, 0.5); */
+        transition: 0.4s;
+    }
+    a:hover{
+      scale: 1.05;
     }
   </style>
 </head>

@@ -5,45 +5,46 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Connexion</title>
     <link rel="stylesheet" href="authentification.css" />
+   
   </head>
-  <body> 
-    <form action="connexion.php" method="POST">
-      <center>
-        <h3 style="width: 68%">Connectez vous pour accedez a nos services</h3>
-      </center>
-      <input type="text" name="log" id="log" placeholder="Login " /><br />
-      <input
-        type="text"
-        name="pass"
-        id="pass"
-        placeholder="Mot de passe"
-      /><br />
-      <input type="submit" value="Connexion"  id="submit"/>
-      <div class="ligne">
-        <h4>Je n'ai pas de compte</h4>
-        <a href="index.html">S'inscrire</a>
-      </div>
-    </form>
+  <body>
+    <!-- <div class="containerO">
+      <div class="case">
+        
+      </div> -->
+      <!-- <div class="case"> -->
+        <form action="connexion.php" method="POST">
+          <center>
+            <h2>Connectez vous pour accedez a nos services</h2>
+            <br />
+          </center>
+          <input type="text" name="log" id="log" placeholder="Login " /><br />
+          <input
+            type="password"
+            name="pass"
+            id="pass"
+            placeholder="Mot de passe"
+          /><br />
+          <input type="submit" value="Connexion" id="submit" />
+          <div class="ligne">
+            <h4>Je n'ai pas de compte</h4>
+            <a href="index.html">S'inscrire</a>
+          </div>
+        </form>
+      <!-- </div> -->
+    <!-- </div> -->
   </body>
+
   <script>
-
-    document.getElementById("submit").onclick = function(){
-
-      var n = 0
+    document.getElementById("submit").onclick = function () {
+      var n = 0;
       const log = document.getElementById("log").value;
       const pass = document.getElementById("pass").value;
 
-      if (log == "" || pass == ""){
-
+      if (log == "" || pass == "") {
         alert("Vueillez remplir tout les champs");
-        return false
-          
+        return false;
       }
-      
-    }
+    };
   </script>
-
-
-  
-  
 </html>

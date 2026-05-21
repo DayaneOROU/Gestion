@@ -69,21 +69,24 @@ $idcom->close();
     }
 
      a{
-        
-        padding: 5px;
+        margin: 10px;
+        padding: 7px;
         border: solid 1px black;
         text-decoration: none;
         color: black;
-        border-radius: 15px;
-        box-shadow: 3px 4px rgba(117, 147, 162, 0.5);
-        
-       
+        background-color: white;
+        border-radius: 17px;
+        /* box-shadow: 3px 4px rgba(117, 147, 162, 0.5); */
+        transition: 0.4s;
+    }
+    a:hover{
+      scale: 1.05;
     }
   </style>
 </head>
 <body>
   <form action="addarticle.php" method="POST">
-    <center><h3>Ajouter un article</h3></center>
+    <center><h3>Ajouter un article</h3></center><br>
 
     <?php if ($message !== ""): ?>
       <div class="message <?= $type ?>">
@@ -98,8 +101,8 @@ $idcom->close();
 
     <div class="ligne" style="margin-top: 50px">
       <h3>Voir les articles</h3>
-      <a href="exemple15_4.php">Retour</a>
-      <a href="./accueil.html">ACCUEIL</a>
+      <a href="exemple15_4.php" style ="color: black">Retour</a>
+      <a href="./accueil.html" style ="color: black">ACCUEIL</a>
     </div>
   </form>
 </body>

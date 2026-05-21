@@ -10,7 +10,7 @@ unset($_SESSION["message"], $_SESSION["type"]);
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Effectuer une vente</title>
-  <link rel="stylesheet" href="authentification.css" />
+  <link rel="stylesheet" href="authentification.css"/>
   <style>
     body {
       min-height: 100vh;
@@ -23,9 +23,11 @@ unset($_SESSION["message"], $_SESSION["type"]);
     }
 
     .container {
-      max-width: 80%;
+      width: 100%;
+      max-width: 800px;
       display: flex;
       flex-direction: column;
+      align-items: center;
       gap: 20px;
     }
 
@@ -52,7 +54,7 @@ unset($_SESSION["message"], $_SESSION["type"]);
       font-size: 14px;
       cursor: pointer;
       transition: background 0.2s;
-      background: #534AB7;
+      background: #6366F1;
       color: white;
     }
 
@@ -61,14 +63,15 @@ unset($_SESSION["message"], $_SESSION["type"]);
     .notfound-box {
       display: none;
       justify-content: space-between;
+      gap: 20px;
       align-items: center;
       background: #FAECE7;
-      border: 0.5px solid #F0997B;
+      border: 0.5px solid #b35a3cff;
       border-radius: 10px;
       padding: 12px 16px;
       font-size: 13px;
       color: #993C1D;
-      margin-top: 8px;
+      margin-bottom: 15px;
     }
 
     .notfound-box a {
@@ -78,26 +81,34 @@ unset($_SESSION["message"], $_SESSION["type"]);
       border-radius: 8px;
       text-decoration: none;
       font-size: 13px;
+      transition: 0.2s;
+    }
+
+    .notfound-box a:hover {
+      background: #773017;
+      scale: 1.05;
     }
 
     .article-card {
       display: flex;
       justify-content: space-between;
       align-items: center;
-      background: white;
+      background: rgba(255, 255, 255, 1);
       border-radius: 10px;
       padding: 12px 16px;
       margin-bottom: 8px;
-      border: 0.5px solid #e0e0e0;
+      border: 0.5px solid rgba(11, 11, 11, 0.3);
+      width: 100%;
+      /* box-shadow: 0px 0px 7px 7px rgba(158, 157, 157, 0.7) */
     }
 
-    .article-card .design { font-weight: 500; width: 35%; }
+    .article-card .design { font-weight: 200; }
     .article-card .info { color: #666; }
-    .article-card .montant { color: #534AB7; font-weight: 500; }
+    .article-card .montant { color: #35cd56ff; font-weight: 500; }
 
     .btn-suppr {
-      background: #FAECE7;
-      color: #993C1D;
+      background: #b93333ff;
+      color: #ffffffff;
       border: none;
       border-radius: 8px;
       padding: 4px 10px;
@@ -115,17 +126,6 @@ unset($_SESSION["message"], $_SESSION["type"]);
     .message { padding: 10px 16px; border-radius: 10px; font-size: 14px; text-align: center; }
     .succes { background: #E1F5EE; color: #085041; border: 1px solid #5DCAA5; }
     .erreur { background: #FAECE7; color: #993C1D; border: 1px solid #F0997B; }
-
-     a {
-      width: 100px;
-      margin: 10px;
-      padding: 7px;
-      border: solid 1px black;
-      text-decoration: none;
-      color: black;
-      border-radius: 17px;
-      box-shadow: 3px 4px rgba(117, 147, 162, 0.5);
-    }
   </style>
 </head>
 <body>
@@ -137,7 +137,7 @@ unset($_SESSION["message"], $_SESSION["type"]);
 
   <form id="venteForm" action="traitement_vente.php" method="POST">
 
-    <h2>Effectuer une vente</h2>
+    <center><h2>Effectuer une vente</h2></center>
 
     <h4>Informations client</h4>
     <input type="text" name="nom" id="nom" placeholder="Nom" required />
@@ -156,7 +156,7 @@ unset($_SESSION["message"], $_SESSION["type"]);
       <a href="addarticle.php" target="_blank">+ Ajouter cet article</a>
     </div>
 
-    <h4>Articles ajoutés</h4>
+    <h4>Articles ajoutés</h4> <br>
     <div id="articles_container">
       <p style="color:#999; font-size:13px; text-align:center;">Aucun article ajouté</p>
     </div>
@@ -173,7 +173,6 @@ unset($_SESSION["message"], $_SESSION["type"]);
     </div>
 
   </form>
-  <a href="./accueil.html">ACCUEIL</a>
 </div>
 
 <script>
@@ -229,25 +228,27 @@ unset($_SESSION["message"], $_SESSION["type"]);
       return;
     }
 
+    let hiddenHTML = "";
+
     articles.forEach((a, i) => {
       const card = document.createElement("div");
       card.className = "article-card";
 
       const design = document.createElement("span");
       design.className = "design";
-      design.textContent = a.design;
+      design.textContent = a.design + "  |";
 
       const qte = document.createElement("span");
       qte.className = "info";
-      qte.textContent = "Qté: " + a.qte;
+      qte.textContent = "Qté: " + a.qte + "  |";
 
       const prix = document.createElement("span");
       prix.className = "info";
-      prix.textContent = a.prix + " FCFA";
+      prix.textContent = "Prix U: " + a.prix + " XOF  |";
 
       const montant = document.createElement("span");
       montant.className = "montant";
-      montant.textContent = a.soustotal + " FCFA";
+      montant.textContent = "Prix T: " +a.soustotal + " XOF";
 
       const btn = document.createElement("button");
       btn.type = "button";
@@ -262,7 +263,7 @@ unset($_SESSION["message"], $_SESSION["type"]);
       card.appendChild(btn);
       container.appendChild(card);
 
-      hidden.innerHTML += `
+      hiddenHTML += `
         <input type="hidden" name="articles[${i}][id]" value="${a.id}">
         <input type="hidden" name="articles[${i}][qte]" value="${a.qte}">
         <input type="hidden" name="articles[${i}][prix]" value="${a.prix}">
@@ -271,7 +272,9 @@ unset($_SESSION["message"], $_SESSION["type"]);
 
     const t = articles.reduce((s, a) => s + a.soustotal, 0);
     document.getElementById("total_display").textContent = t + " FCFA";
-    hidden.innerHTML += `<input type="hidden" name="total" value="${t}">`;
+
+    hiddenHTML += `<input type="hidden" name="total" value="${t}">`;
+    hidden.innerHTML = hiddenHTML;
   }
 
   function validerVente() {

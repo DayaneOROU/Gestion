@@ -27,13 +27,13 @@ $result  = $idcom->query($requete);
     h3 {
       margin: 0;
       font-size: 22px;
-      color: #333;
+      color: #ffffff;
     }
 
     h4 {
       margin: 0;
       font-size: 14px;
-      color: #666;
+      color: #ffffff;
       font-weight: 400;
     }
 
@@ -49,7 +49,7 @@ $result  = $idcom->query($requete);
 
     table {
       width: 100%;
-      max-width: 800px;
+      max-width: 700px;
       border-collapse: collapse;
       background: white;
       border-radius: 12px;
@@ -94,17 +94,21 @@ $result  = $idcom->query($requete);
         border: solid 1px black;
         text-decoration: none;
         color: black;
+        background-color: white;
         border-radius: 17px;
-        box-shadow: 3px 4px rgba(117, 147, 162, 0.5);
-        
-       
+        /* box-shadow: 3px 4px rgba(117, 147, 162, 0.5); */
+        transition: 0.4s;
     }
+    a:hover{
+      scale: 1.05;
+    }
+    
   </style>
 </head>
 <body>
 
   
-    <div>
+    <div >
       <h3>Tous nos Utilisateurs </h3>
       <?php if ($result): ?>
         <h4>Il y a <?= $result->num_rows ?> client</h4>
@@ -144,6 +148,8 @@ $result  = $idcom->query($requete);
   ?>
 
   <a href="./accueil.html">ACCUEIL</a>
+
+
 
 </body>
 </html>

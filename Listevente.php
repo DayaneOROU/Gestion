@@ -28,13 +28,13 @@ $result  = $idcom->query($requete);
     h3 {
       margin: 0;
       font-size: 22px;
-      color: #333;
+      color: #ffffff;
     }
 
     h4 {
       margin: 0;
       font-size: 14px;
-      color: #666;
+      color: #ffffff;
       font-weight: 400;
     }
 
@@ -92,14 +92,19 @@ $result  = $idcom->query($requete);
 
     .voir:hover { background: #3C3489; }
 
-    a {
-      margin: 10px;
-      padding: 7px;
-      border: solid 1px black;
-      text-decoration: none;
-      color: black;
-      border-radius: 17px;
-      box-shadow: 3px 4px rgba(117, 147, 162, 0.5);
+a{
+        margin: 10px;
+        padding: 7px;
+        border: solid 1px black;
+        text-decoration: none;
+        color: black;
+        background-color: white;
+        border-radius: 17px;
+        /* box-shadow: 3px 4px rgba(117, 147, 162, 0.5); */
+        transition: 0.4s;
+    }
+    a:hover{
+      scale: 1.05;
     }
   </style>
 </head>

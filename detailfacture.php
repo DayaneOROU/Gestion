@@ -9,7 +9,7 @@ if (!$id_commande) {
   exit;
 }
 
-// Récupérer les infos de la commande + client
+
 $result_commande = $idcom->query("
   SELECT c.id_comm, c.date, c.montant_total,
          cl.nom, cl.prenom, cl.mail, cl.ville
@@ -54,7 +54,7 @@ $result_lignes = $idcom->query("
     }
 
     .container {
-      max-width: 80%;
+      max-width: 600px;
       display: flex;
       flex-direction: column;
       gap: 20px;
@@ -68,7 +68,7 @@ $result_lignes = $idcom->query("
 
     .badge {
       display: inline-block;
-      background: #EEEDFE;
+      background: #F8F9FA;
       color: #534AB7;
       padding: 4px 12px;
       border-radius: 20px;
@@ -85,9 +85,10 @@ $result_lignes = $idcom->query("
       text-decoration: none;
       background: #534AB7;
       color: white;
+      transition: 0.5s
     }
 
-    .btn:hover { background: #3C3489; }
+    .btn:hover { background: #3C3489; scale:1.05}
 
     .btn-outline {
       background: white;
@@ -98,16 +99,19 @@ $result_lignes = $idcom->query("
     .btn-outline:hover { background: #EEEDFE; }
 
     .card {
+      background-color: #F8F9FA;
+      width: 100%;
+      max-width: 550px;
       background: white;
       border-radius: 14px;
       padding: 24px;
-      border: 0.5px solid #e0e0e0;
+      border: 0.5px solid #000000ff;
     }
 
     .card h4 {
       margin: 0 0 16px;
       font-size: 13px;
-      color: #534AB7;
+      color: #1500ffff;
       font-weight: 500;
       text-transform: uppercase;
       letter-spacing: 0.5px;
@@ -136,16 +140,19 @@ $result_lignes = $idcom->query("
       display: flex;
       justify-content: space-between;
       align-items: center;
-      background: #f9f9f9;
+      background: rgba(255, 255, 255, 1);
       border-radius: 10px;
       padding: 12px 16px;
-      margin-bottom: 8px;
-      border: 0.5px solid #e0e0e0;
+      margin-bottom: 20px;
+      border: 0.5px solid rgba(11, 11, 11, 0.3);
+      width: 90%;
+      box-shadow: 0px 0px 7px 7px rgba(158, 157, 157, 0.7)
     }
 
-    .article-card .design { font-weight: 500; width: 35%; }
-    .article-card .info { color: #666; font-size: 14px; }
-    .article-card .montant { color: #534AB7; font-weight: 500; }
+    .article-card .design { font-weight: 200; }
+    .article-card .info { color: #666; }
+    .article-card .montant { color: #35cd56ff; font-weight: 500; }
+
 
     .total-section {
       text-align: right;
